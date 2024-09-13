@@ -1,0 +1,13 @@
+services:
+  ssh-share:
+    build:
+      context: .
+      args:
+        - USER_NAME=${USER_NAME}
+        - USER_PASSWORD=${USER_PASSWORD}
+    image: ssh-share:latest
+    container_name: ssh-share
+    volumes:
+      - ./shared-files:/shared-files
+    ports:
+      - "${SSH_PORT}:22"
