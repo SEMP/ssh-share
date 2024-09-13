@@ -5,9 +5,13 @@ services:
       args:
         - USER_NAME=${USER_NAME}
         - USER_PASSWORD=${USER_PASSWORD}
+        - SHARED_FOLDER=${SHARED_FOLDER}
+        - SCRIPTS_FOLDER=${SCRIPTS_FOLDER}
+        - DATA_FOLDER=${DATA_FOLDER}
     image: ssh-share:latest
     container_name: ssh-share
     volumes:
-      - ./shared-files:/shared-files
+      - .${SHARED_FOLDER}/${SCRIPTS_FOLDER}:${SHARED_FOLDER}/${SCRIPTS_FOLDER}
+      - .${SHARED_FOLDER}/${DATA_FOLDER}:${SHARED_FOLDER}/${DATA_FOLDER}
     ports:
       - "${SSH_PORT}:22"
