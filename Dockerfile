@@ -1,8 +1,8 @@
 # Use Alpine as the base image
 FROM alpine:latest
 
-# Install OpenSSH server and necessary tools
-RUN apk update && apk add --no-cache openssh-server sudo
+# Install OpenSSH server, client, and necessary tools
+RUN apk update && apk add --no-cache openssh-server openssh-client sudo
 
 # Set build-time arguments (USER_NAME and USER_PASSWORD)
 ARG USER_NAME=user
