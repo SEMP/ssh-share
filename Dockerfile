@@ -2,7 +2,7 @@
 FROM alpine:latest
 
 # Install OpenSSH server, client, and necessary tools
-RUN apk update && apk add --no-cache openssh-server openssh-client sudo
+RUN apk update && apk add --no-cache openssh-server openssh-client sudo vim nano
 
 # Set build-time arguments (USER_NAME and USER_PASSWORD)
 ARG USER_NAME=user

@@ -10,6 +10,8 @@ services:
         - DATA_FOLDER=${DATA_FOLDER}
     image: ssh-share:latest
     container_name: ssh-share
+    environment:
+      - PATH=${SHARED_FOLDER}/${SCRIPTS_FOLDER}:$PATH
     volumes:
       - .${SHARED_FOLDER}/${SCRIPTS_FOLDER}:${SHARED_FOLDER}/${SCRIPTS_FOLDER}
       - .${SHARED_FOLDER}/${DATA_FOLDER}:${SHARED_FOLDER}/${DATA_FOLDER}
